@@ -81,9 +81,10 @@ public class BaseClass {
 	}
 
 	public String statusUpdate(int level) throws InterruptedException {
-		Thread.sleep(2000);
-		//driver.navigate().refresh();
-		statusValue = driver.findElement(By.id("opsbar-transitions_more")).getText();
+		driver.navigate().refresh();
+		Thread.sleep(10000);
+		
+		 statusValue = driver.findElement(By.id("sd-customer-visible-status")).getText();
 		System.out.println(statusValue);
 		/*
 		 * if (level != 1) {

@@ -7,7 +7,9 @@
         <methods>
           <include name="subtaskclosure"/>
           <include name="inizializeDriver"/>
+          <include name="ticketSubmit"/>
           <include name="approved"/>
+          <include name="accIdCatalog"/>
         </methods>
       </class> <!-- testCases.AccoundIDSB -->
     </classes>

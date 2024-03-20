@@ -2,6 +2,7 @@ package testCases;
 import java.util.ResourceBundle;
 
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import components.ApprovalComponent;
@@ -48,7 +49,7 @@ public class AccoundIDSB extends BaseClass{
 		
 		}
 		
-		@Test
+		@Test(dependsOnMethods={"ticketSubmit"})
 		public void approved() throws InterruptedException {
 		ApprovalComponent approval = new ApprovalComponent();
 		int approvalLevels = 1;		//mention about approval levels

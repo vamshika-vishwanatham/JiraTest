@@ -10,8 +10,12 @@ target/
 .factorypath
 .project
 .settings
+.metadata
 .springBeans
 .sts4-cache
+
+### test-output selinium ####
+test-output
 
 ### IntelliJ IDEA ###
 .idea

@@ -108,7 +108,7 @@ public class SubtaskHandlingComponent extends BaseClass{
 		updateAssinee();
 		inProgressTransition();
 		onHoldTransition();
-		closeTransition(i);
+		closeTransition();
 		System.out.println("************** Closed Subtask "+ i +"**************");
 		}
 	}
@@ -187,8 +187,38 @@ public class SubtaskHandlingComponent extends BaseClass{
 		System.out.println("Ticket Status: " + statusDropDown.getText());
 		
 	}
+	public void closeTransition() throws InterruptedException {
+		driver.navigate().refresh();
+		Thread.sleep(3000);
+		statusDropDown.click();
+		close.click();
+		Select closecodevalue = new Select(closeCode);
+		Thread.sleep(2000);
+		closecodevalue.selectByIndex(3);
+		Thread.sleep(2000);
+		closeNote.sendKeys("Test ticket please ignore");
+		Select ActualSizeValue = new Select(actualSize);
+		Thread.sleep(2000);
+		ActualSizeValue.selectByIndex(4);
+		Thread.sleep(2000);
+		driver.switchTo().frame(richTextAreaFrame);
+		Thread.sleep(3000);
+		onHoldCommentBody.sendKeys("Tested");
+		Thread.sleep(3000);
+		driver.switchTo().parentFrame();
+		onHoldCloseButton.click();
+		Thread.sleep(30000);
+		driver.navigate().refresh();
+		System.out.println("--------------------------------");
+		System.out.println("Ticket Status: " + statusDropDown.getText());
+		moduleTicketData();
+		driver.navigate().back();
+		Thread.sleep(5000);
+		driver.navigate().refresh();
+		Thread.sleep(7000);
+	}
 	
-	public void closeTransition(int n) throws InterruptedException {
+	public void serverCloseTransition(int n) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		if(n==2) {
